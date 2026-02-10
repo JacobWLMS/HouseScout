@@ -7,7 +7,7 @@ use App\Services\Api\EpcApiService;
 use Illuminate\Support\Facades\Http;
 
 beforeEach(function () {
-    config(['housescout.api.epc.key' => 'test-api-key']);
+    config(['housescout.api.epc.key' => 'test-api-key', 'housescout.api.epc.email' => 'test@example.com']);
 });
 
 test('fetches and stores epc data for property', function () {

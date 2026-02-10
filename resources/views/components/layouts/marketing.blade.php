@@ -23,8 +23,8 @@
 
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
-    <body class="bg-white text-zinc-900 antialiased dark:bg-zinc-950 dark:text-zinc-100">
-        <header class="sticky top-0 z-50 border-b border-zinc-100 bg-white/90 backdrop-blur-sm dark:border-zinc-800 dark:bg-zinc-950/90">
+    <body class="bg-white text-zinc-900 antialiased dark:bg-zinc-900 dark:text-zinc-100">
+        <header class="sticky top-0 z-50 border-b border-zinc-100 bg-white/90 backdrop-blur-sm dark:border-zinc-700 dark:bg-zinc-900/90">
             <div class="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
                 <a href="{{ route('home') }}" class="flex items-center gap-2">
                     <div class="flex size-9 items-center justify-center rounded-lg bg-blue-600">

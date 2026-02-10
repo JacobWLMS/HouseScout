@@ -72,7 +72,7 @@ class LandRegistryApiService implements PropertyDataProvider
             return true;
         }
 
-        $ttl = config('housescout.api.land_registry.cache_ttl');
+        $ttl = (int) config('housescout.api.land_registry.cache_ttl');
 
         return $landData->fetched_at->addSeconds($ttl)->isPast();
     }

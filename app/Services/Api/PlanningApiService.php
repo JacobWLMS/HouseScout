@@ -82,7 +82,7 @@ class PlanningApiService implements PropertyDataProvider
             return true;
         }
 
-        $ttl = config('housescout.api.planning.cache_ttl');
+        $ttl = (int) config('housescout.api.planning.cache_ttl');
 
         return $latestApplication->fetched_at->addSeconds($ttl)->isPast();
     }

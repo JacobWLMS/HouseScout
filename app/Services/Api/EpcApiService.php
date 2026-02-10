@@ -17,10 +17,11 @@ class EpcApiService implements PropertyDataProvider
         }
 
         $baseUrl = config('housescout.api.epc.base_url');
+        $email = config('housescout.api.epc.email');
         $apiKey = config('housescout.api.epc.key');
 
-        if (! $apiKey) {
-            Log::warning('EPC API key not configured', [
+        if (! $apiKey || ! $email) {
+            Log::warning('EPC API credentials not configured', [
                 'property_id' => $property->id,
             ]);
 
@@ -28,7 +29,7 @@ class EpcApiService implements PropertyDataProvider
         }
 
         try {
-            $response = Http::withBasicAuth($apiKey, '')
+            $response = Http::withBasicAuth($email, $apiKey)
                 ->accept('application/json')
                 ->get("{$baseUrl}/domestic/search", [
                     'postcode' => $property->postcode,
@@ -95,7 +96,7 @@ class EpcApiService implements PropertyDataProvider
             return true;
         }
 
-        $ttl = config('housescout.api.epc.cache_ttl');
+        $ttl = (int) config('housescout.api.epc.cache_ttl');
 
         return $epcData->fetched_at->addSeconds($ttl)->isPast();
     }

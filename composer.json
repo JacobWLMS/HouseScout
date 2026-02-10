@@ -10,6 +10,9 @@
         "filament/filament": "^5.0",
         "laravel/framework": "^12.0",
         "laravel/nightwatch": "^1.22",
+        "laravel/pulse": "^1.5",
+        "laravel/sanctum": "*",
+        "laravel/scout": "^10.23",
         "laravel/socialite": "^5.24",
         "laravel/tinker": "^2.10.1",
         "livewire/flux": "^2.9.0",
@@ -18,9 +21,11 @@
     "require-dev": {
         "fakerphp/faker": "^1.23",
         "laravel/boost": "^2.1",
+        "laravel/dusk": "^8.3",
         "laravel/pail": "^1.2.2",
         "laravel/pint": "^1.24",
         "laravel/sail": "^1.41",
+        "laravel/telescope": "^5.17",
         "mockery/mockery": "^1.6",
         "nunomaduro/collision": "^8.6",
         "pestphp/pest": "^4.3",
@@ -85,7 +90,9 @@
     },
     "extra": {
         "laravel": {
-            "dont-discover": []
+            "dont-discover": [
+                "laravel/telescope"
+            ]
         }
     },
     "config": {

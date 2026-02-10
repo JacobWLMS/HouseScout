@@ -3,8 +3,7 @@
 namespace App\Providers\Filament;
 
 use App\Filament\Widgets\PropertySearchWidget;
-use App\Filament\Widgets\RecentSearchesWidget;
-use App\Filament\Widgets\StatsOverviewWidget;
+use App\Filament\Widgets\SavedPropertyCardsWidget;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\AuthenticateSession;
 use Filament\Http\Middleware\DisableBladeIconComponents;
@@ -49,8 +48,7 @@ class AppPanelProvider extends PanelProvider
             ->discoverWidgets(in: app_path('Filament/Widgets'), for: 'App\Filament\Widgets')
             ->widgets([
                 PropertySearchWidget::class,
-                RecentSearchesWidget::class,
-                StatsOverviewWidget::class,
+                SavedPropertyCardsWidget::class,
             ])
             ->middleware([
                 EncryptCookies::class,
