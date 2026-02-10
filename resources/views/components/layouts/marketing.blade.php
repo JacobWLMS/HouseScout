@@ -13,10 +13,18 @@
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=instrument-sans:400,500,600,700" rel="stylesheet" />
 
+        <script>
+            if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+        </script>
+
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
-    <body class="bg-white text-zinc-900 antialiased">
-        <header class="sticky top-0 z-50 border-b border-zinc-100 bg-white/90 backdrop-blur-sm">
+    <body class="bg-white text-zinc-900 antialiased dark:bg-zinc-950 dark:text-zinc-100">
+        <header class="sticky top-0 z-50 border-b border-zinc-100 bg-white/90 backdrop-blur-sm dark:border-zinc-800 dark:bg-zinc-950/90">
             <div class="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
                 <a href="{{ route('home') }}" class="flex items-center gap-2">
                     <div class="flex size-9 items-center justify-center rounded-lg bg-blue-600">
@@ -25,13 +33,26 @@
                             <path d="m12 5.432 8.159 8.159c.03.03.06.058.091.086v6.198c0 1.035-.84 1.875-1.875 1.875H15a.75.75 0 0 1-.75-.75v-4.5a.75.75 0 0 0-.75-.75h-3a.75.75 0 0 0-.75.75V21a.75.75 0 0 1-.75.75H5.625a1.875 1.875 0 0 1-1.875-1.875v-6.198a2.29 2.29 0 0 0 .091-.086L12 5.432Z" />
                         </svg>
                     </div>
-                    <span class="text-xl font-semibold text-zinc-900">HouseScout</span>
+                    <span class="text-xl font-semibold text-zinc-900 dark:text-white">HouseScout</span>
                 </a>
 
                 <nav class="flex items-center gap-3">
-                    <a href="/app/login" class="rounded-lg px-4 py-2 text-sm font-medium text-zinc-600 transition hover:text-zinc-900">
+                    <a href="/app/login" class="rounded-lg px-4 py-2 text-sm font-medium text-zinc-600 transition hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-white">
                         Login
                     </a>
+                    <button
+                        id="theme-toggle"
+                        type="button"
+                        class="rounded-lg p-2 text-zinc-500 transition hover:bg-zinc-100 hover:text-zinc-900 dark:text-zinc-400 dark:hover:bg-zinc-800 dark:hover:text-white"
+                        aria-label="Toggle dark mode"
+                    >
+                        <svg id="theme-icon-moon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="hidden size-5">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z" />
+                        </svg>
+                        <svg id="theme-icon-sun" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="hidden size-5">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z" />
+                        </svg>
+                    </button>
                     <a href="/app/register" class="rounded-lg bg-blue-600 px-4 py-2 text-sm font-medium text-white transition hover:bg-blue-700">
                         Sign Up
                     </a>
@@ -42,5 +63,36 @@
         <main>
             {{ $slot }}
         </main>
+
+        <script>
+            (function () {
+                const toggle = document.getElementById('theme-toggle');
+                const moonIcon = document.getElementById('theme-icon-moon');
+                const sunIcon = document.getElementById('theme-icon-sun');
+
+                function updateIcons() {
+                    if (document.documentElement.classList.contains('dark')) {
+                        moonIcon.classList.add('hidden');
+                        sunIcon.classList.remove('hidden');
+                    } else {
+                        moonIcon.classList.remove('hidden');
+                        sunIcon.classList.add('hidden');
+                    }
+                }
+
+                updateIcons();
+
+                toggle.addEventListener('click', function () {
+                    if (document.documentElement.classList.contains('dark')) {
+                        document.documentElement.classList.remove('dark');
+                        localStorage.theme = 'light';
+                    } else {
+                        document.documentElement.classList.add('dark');
+                        localStorage.theme = 'dark';
+                    }
+                    updateIcons();
+                });
+            })();
+        </script>
     </body>
 </html>

@@ -34,8 +34,13 @@ class AppPanelProvider extends PanelProvider
             ->passwordReset()
             ->emailVerification()
             ->colors([
-                'primary' => Color::Emerald,
+                'primary' => Color::Blue,
             ])
+            ->brandName('HouseScout')
+            ->brandLogo(fn () => view('filament.components.brand-logo'))
+            ->darkModeBrandLogo(fn () => view('filament.components.brand-logo-dark'))
+            ->brandLogoHeight('1.5rem')
+            ->favicon(asset('favicon.ico'))
             ->discoverResources(in: app_path('Filament/Resources'), for: 'App\Filament\Resources')
             ->discoverPages(in: app_path('Filament/Pages'), for: 'App\Filament\Pages')
             ->pages([
