@@ -2,7 +2,6 @@
 
 namespace App\Services;
 
-use App\Jobs\FetchPropertyDataJob;
 use App\Models\Property;
 use App\Services\Api\Contracts\PropertyDataProvider;
 use App\Services\Api\EpcApiService;
@@ -21,11 +20,6 @@ class PropertyIntelligenceService
         PoliceApiService::class,
         LandRegistryApiService::class,
     ];
-
-    public function fetchAllData(Property $property): void
-    {
-        FetchPropertyDataJob::dispatch($property);
-    }
 
     /**
      * @return list<class-string<PropertyDataProvider>>

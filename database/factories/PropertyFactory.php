@@ -46,6 +46,13 @@ class PropertyFactory extends Factory
             'built_form' => fake()->randomElement($builtForms),
             'floor_area' => fake()->optional(0.7)->randomFloat(2, 30, 500),
             'metadata' => null,
+            'lsoa' => fake()->optional(0.8)->regexify('[A-Z][a-z]+ [0-9]{3}[A-Z]'),
+            'msoa' => fake()->optional(0.8)->regexify('[A-Z][a-z]+ [0-9]{3}'),
+            'ward' => fake()->optional(0.8)->words(2, true),
+            'constituency' => fake()->optional(0.8)->words(3, true),
+            'easting' => fake()->optional(0.8)->numberBetween(100000, 700000),
+            'northing' => fake()->optional(0.8)->numberBetween(100000, 1200000),
+            'local_authority' => fake()->optional(0.8)->city(),
         ];
     }
 }

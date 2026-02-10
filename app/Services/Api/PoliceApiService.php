@@ -78,7 +78,7 @@ class PoliceApiService implements PropertyDataProvider
             return true;
         }
 
-        $ttl = config('housescout.api.police.cache_ttl');
+        $ttl = (int) config('housescout.api.police.cache_ttl');
 
         return $latestCrime->updated_at->addSeconds($ttl)->isPast();
     }

@@ -86,7 +86,7 @@ class FloodMonitoringApiService implements PropertyDataProvider
             return true;
         }
 
-        $ttl = config('housescout.api.flood.cache_ttl');
+        $ttl = (int) config('housescout.api.flood.cache_ttl');
 
         return $floodData->fetched_at->addSeconds($ttl)->isPast();
     }

@@ -2,12 +2,14 @@
 
 namespace App\Services;
 
-use App\Exceptions\InvalidPostcodeException;
+use App\DataObjects\AddressResult;
+use App\DataObjects\PostcodeLookupResult;
 use App\Jobs\FetchPropertyDataJob;
 use App\Models\Property;
 use App\Models\PropertySearch;
 use App\Models\User;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\Log;
 
 class PropertySearchService
 {
@@ -15,42 +17,104 @@ class PropertySearchService
         private PostcodeService $postcodeService,
     ) {}
 
-    public function search(User $user, string $query): Property
+    /**
+     * Select a specific property from address results, creating it if needed.
+     * This is the main entry point for the new search flow.
+     */
+    public function selectProperty(User $user, AddressResult $address, PostcodeLookupResult $postcodeData): Property
     {
-        $query = trim($query);
-
-        if ($this->postcodeService->validate($query)) {
-            $postcode = $this->postcodeService->normalize($query);
+        // 1. Try to find existing property by UPRN
+        $property = null;
+        if ($address->uprn) {
             $property = Property::query()
-                ->where('postcode', $postcode)
+                ->where('uprn', $address->uprn)
                 ->first();
+        }
 
-            if (! $property) {
-                $property = Property::create([
-                    'address_line_1' => $postcode,
-                    'city' => '',
-                    'postcode' => $postcode,
-                ]);
-            }
+        // 2. Fallback: find by address + postcode
+        if (! $property) {
+            $property = Property::query()
+                ->where('address_line_1', $address->addressLine1)
+                ->where('postcode', $address->postcode)
+                ->first();
+        }
+
+        // 3. Create new property if not found
+        if (! $property) {
+            $property = Property::create([
+                'address_line_1' => $address->addressLine1,
+                'address_line_2' => $address->addressLine2,
+                'city' => $postcodeData->adminDistrict ?? '',
+                'county' => $postcodeData->adminCounty,
+                'postcode' => $address->postcode,
+                'uprn' => $address->uprn,
+                'latitude' => $postcodeData->latitude,
+                'longitude' => $postcodeData->longitude,
+                'property_type' => $address->propertyType,
+                'floor_area' => $address->floorArea,
+                'lsoa' => $postcodeData->lsoa,
+                'msoa' => $postcodeData->msoa,
+                'ward' => $postcodeData->ward,
+                'constituency' => $postcodeData->constituency,
+                'easting' => $postcodeData->easting,
+                'northing' => $postcodeData->northing,
+                'local_authority' => $postcodeData->localAuthority,
+            ]);
         } else {
-            $property = Property::query()
-                ->where('address_line_1', 'like', "%{$query}%")
-                ->orWhere('postcode', 'like', "%{$query}%")
-                ->first();
-
-            if (! $property) {
-                throw new InvalidPostcodeException("No property found for query: {$query}");
+            // Update existing property with any new data (e.g., lat/long if missing)
+            $updates = [];
+            if (! $property->latitude && $postcodeData->latitude) {
+                $updates['latitude'] = $postcodeData->latitude;
+            }
+            if (! $property->longitude && $postcodeData->longitude) {
+                $updates['longitude'] = $postcodeData->longitude;
+            }
+            if (! $property->uprn && $address->uprn) {
+                $updates['uprn'] = $address->uprn;
+            }
+            if (! $property->lsoa && $postcodeData->lsoa) {
+                $updates['lsoa'] = $postcodeData->lsoa;
+            }
+            if (! $property->msoa && $postcodeData->msoa) {
+                $updates['msoa'] = $postcodeData->msoa;
+            }
+            if (! $property->ward && $postcodeData->ward) {
+                $updates['ward'] = $postcodeData->ward;
+            }
+            if (! $property->constituency && $postcodeData->constituency) {
+                $updates['constituency'] = $postcodeData->constituency;
+            }
+            if (! $property->easting && $postcodeData->easting) {
+                $updates['easting'] = $postcodeData->easting;
+            }
+            if (! $property->northing && $postcodeData->northing) {
+                $updates['northing'] = $postcodeData->northing;
+            }
+            if (! $property->local_authority && $postcodeData->localAuthority) {
+                $updates['local_authority'] = $postcodeData->localAuthority;
+            }
+            if (! empty($updates)) {
+                $property->update($updates);
             }
         }
 
+        // 4. Create search audit record
         PropertySearch::create([
             'user_id' => $user->id,
             'property_id' => $property->id,
             'searched_at' => now(),
-            'search_query' => $query,
+            'search_query' => $address->fullAddress.', '.$address->postcode,
         ]);
 
-        FetchPropertyDataJob::dispatch($property);
+        // 5. Dispatch data fetch job (non-blocking — don't fail property creation if queue is down)
+        try {
+            FetchPropertyDataJob::dispatch($property);
+        } catch (\Exception $e) {
+            Log::warning('Failed to dispatch FetchPropertyDataJob', [
+                'property_id' => $property->id,
+                'error' => $e->getMessage(),
+            ]);
+        }
 
         return $property;
     }

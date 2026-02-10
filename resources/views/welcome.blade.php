@@ -42,7 +42,7 @@
     </section>
 
     {{-- Features Grid --}}
-    <section class="bg-white py-20 sm:py-28 dark:bg-zinc-950">
+    <section class="bg-white py-20 sm:py-28 dark:bg-zinc-900">
         <div class="mx-auto max-w-7xl px-6">
             <div class="mx-auto max-w-2xl text-center">
                 <h2 class="text-3xl font-bold tracking-tight text-zinc-900 sm:text-4xl dark:text-white">
@@ -55,7 +55,7 @@
 
             <div class="mx-auto mt-16 grid max-w-5xl gap-8 sm:grid-cols-2 lg:grid-cols-3">
                 {{-- EPC Ratings --}}
-                <div class="rounded-xl border border-zinc-100 bg-white p-6 shadow-sm transition hover:shadow-md dark:border-zinc-800 dark:bg-zinc-900">
+                <div class="rounded-xl border border-zinc-100 bg-white p-6 shadow-sm transition hover:shadow-md dark:border-zinc-700 dark:bg-zinc-800">
                     <div class="flex size-12 items-center justify-center rounded-lg bg-green-50 dark:bg-green-950/50">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 text-green-600">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" />
@@ -66,7 +66,7 @@
                 </div>
 
                 {{-- Planning History --}}
-                <div class="rounded-xl border border-zinc-100 bg-white p-6 shadow-sm transition hover:shadow-md dark:border-zinc-800 dark:bg-zinc-900">
+                <div class="rounded-xl border border-zinc-100 bg-white p-6 shadow-sm transition hover:shadow-md dark:border-zinc-700 dark:bg-zinc-800">
                     <div class="flex size-12 items-center justify-center rounded-lg bg-blue-50 dark:bg-blue-950/50">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 text-blue-600">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" />
@@ -77,7 +77,7 @@
                 </div>
 
                 {{-- Flood Risk --}}
-                <div class="rounded-xl border border-zinc-100 bg-white p-6 shadow-sm transition hover:shadow-md dark:border-zinc-800 dark:bg-zinc-900">
+                <div class="rounded-xl border border-zinc-100 bg-white p-6 shadow-sm transition hover:shadow-md dark:border-zinc-700 dark:bg-zinc-800">
                     <div class="flex size-12 items-center justify-center rounded-lg bg-cyan-50 dark:bg-cyan-950/50">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 text-cyan-600">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 013 12c0-1.605.42-3.113 1.157-4.418" />
@@ -88,7 +88,7 @@
                 </div>
 
                 {{-- Crime Statistics --}}
-                <div class="rounded-xl border border-zinc-100 bg-white p-6 shadow-sm transition hover:shadow-md dark:border-zinc-800 dark:bg-zinc-900">
+                <div class="rounded-xl border border-zinc-100 bg-white p-6 shadow-sm transition hover:shadow-md dark:border-zinc-700 dark:bg-zinc-800">
                     <div class="flex size-12 items-center justify-center rounded-lg bg-red-50 dark:bg-red-950/50">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 text-red-600">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m0-10.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285zm0 13.036h.008v.008H12v-.008z" />
@@ -99,7 +99,7 @@
                 </div>
 
                 {{-- Land Registry --}}
-                <div class="rounded-xl border border-zinc-100 bg-white p-6 shadow-sm transition hover:shadow-md dark:border-zinc-800 dark:bg-zinc-900">
+                <div class="rounded-xl border border-zinc-100 bg-white p-6 shadow-sm transition hover:shadow-md dark:border-zinc-700 dark:bg-zinc-800">
                     <div class="flex size-12 items-center justify-center rounded-lg bg-amber-50 dark:bg-amber-950/50">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 text-amber-600">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 21h19.5m-18-18v18m10.5-18v18m6-13.5V21M6.75 6.75h.75m-.75 3h.75m-.75 3h.75m3-6h.75m-.75 3h.75m-.75 3h.75M6.75 21v-3.375c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21M3 3h12m-.75 4.5H21m-3.75 3H21m-3.75 3H21" />
@@ -110,7 +110,7 @@
                 </div>
 
                 {{-- Demand Tracking --}}
-                <div class="rounded-xl border border-zinc-100 bg-white p-6 shadow-sm transition hover:shadow-md dark:border-zinc-800 dark:bg-zinc-900">
+                <div class="rounded-xl border border-zinc-100 bg-white p-6 shadow-sm transition hover:shadow-md dark:border-zinc-700 dark:bg-zinc-800">
                     <div class="flex size-12 items-center justify-center rounded-lg bg-purple-50 dark:bg-purple-950/50">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 text-purple-600">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z" />
@@ -125,7 +125,7 @@
     </section>
 
     {{-- How It Works --}}
-    <section class="bg-zinc-50 py-20 sm:py-28 dark:bg-zinc-900">
+    <section class="bg-zinc-50 py-20 sm:py-28 dark:bg-zinc-800">
         <div class="mx-auto max-w-7xl px-6">
             <div class="mx-auto max-w-2xl text-center">
                 <h2 class="text-3xl font-bold tracking-tight text-zinc-900 sm:text-4xl dark:text-white">
@@ -167,8 +167,54 @@
         </div>
     </section>
 
+    {{-- Why HouseScout --}}
+    <section class="bg-white py-20 sm:py-28 dark:bg-zinc-900">
+        <div class="mx-auto max-w-7xl px-6">
+            <div class="mx-auto max-w-2xl text-center">
+                <h2 class="text-3xl font-bold tracking-tight text-zinc-900 sm:text-4xl dark:text-white">
+                    Why HouseScout?
+                </h2>
+                <p class="mt-4 text-lg text-zinc-600 dark:text-zinc-400">
+                    Buying a home is one of the biggest decisions you'll make. We help you make it with confidence.
+                </p>
+            </div>
+
+            <div class="mx-auto mt-16 grid max-w-5xl gap-12 sm:grid-cols-3">
+                <div class="text-center">
+                    <div class="mx-auto flex size-14 items-center justify-center rounded-xl bg-blue-50 dark:bg-blue-950/50">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-7 text-blue-600">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 3.75v4.5m0-4.5h4.5m-4.5 0L9 9M3.75 20.25v-4.5m0 4.5h4.5m-4.5 0L9 15M20.25 3.75h-4.5m4.5 0v4.5m0-4.5L15 9m5.25 11.25h-4.5m4.5 0v-4.5m0 4.5L15 15" />
+                        </svg>
+                    </div>
+                    <h3 class="mt-4 text-lg font-semibold text-zinc-900 dark:text-white">One Search, Complete Picture</h3>
+                    <p class="mt-2 text-sm text-zinc-600 dark:text-zinc-400">No more juggling multiple government websites. We pull EPC ratings, flood risk, crime data, planning history, and land registry records into a single view for any UK property.</p>
+                </div>
+
+                <div class="text-center">
+                    <div class="mx-auto flex size-14 items-center justify-center rounded-xl bg-green-50 dark:bg-green-950/50">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-7 text-green-600">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 0 1-1.043 3.296 3.745 3.745 0 0 1-3.296 1.043A3.745 3.745 0 0 1 12 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 0 1-3.296-1.043 3.745 3.745 0 0 1-1.043-3.296A3.745 3.745 0 0 1 3 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 0 1 1.043-3.296 3.746 3.746 0 0 1 3.296-1.043A3.746 3.746 0 0 1 12 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 0 1 3.296 1.043 3.746 3.746 0 0 1 1.043 3.296A3.745 3.745 0 0 1 21 12Z" />
+                        </svg>
+                    </div>
+                    <h3 class="mt-4 text-lg font-semibold text-zinc-900 dark:text-white">Personal Checklist</h3>
+                    <p class="mt-2 text-sm text-zinc-600 dark:text-zinc-400">Rate every aspect of a property — energy costs, flood risk, crime levels, and more. Flag deal-breakers and compare properties side by side with your own scoring system.</p>
+                </div>
+
+                <div class="text-center">
+                    <div class="mx-auto flex size-14 items-center justify-center rounded-xl bg-indigo-50 dark:bg-indigo-950/50">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-7 text-indigo-600">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
+                        </svg>
+                    </div>
+                    <h3 class="mt-4 text-lg font-semibold text-zinc-900 dark:text-white">Official Sources Only</h3>
+                    <p class="mt-2 text-sm text-zinc-600 dark:text-zinc-400">Every data point comes directly from UK government APIs — the EPC Register, Environment Agency, Police UK, Planning Data, and HM Land Registry. No estimates or third-party guesses.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     {{-- Stats / Social Proof --}}
-    <section class="border-y border-zinc-100 bg-white py-16 dark:border-zinc-800 dark:bg-zinc-950">
+    <section class="border-y border-zinc-100 bg-white py-16 dark:border-zinc-700 dark:bg-zinc-900">
         <div class="mx-auto max-w-7xl px-6">
             <div class="grid grid-cols-2 gap-8 sm:grid-cols-4">
                 <div class="text-center">
@@ -206,31 +252,4 @@
         </div>
     </section>
 
-    {{-- Footer --}}
-    <footer class="bg-zinc-900 py-12">
-        <div class="mx-auto max-w-7xl px-6">
-            <div class="flex flex-col items-center gap-6 sm:flex-row sm:justify-between">
-                <div class="flex items-center gap-2">
-                    <div class="flex size-8 items-center justify-center rounded-lg bg-blue-600">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-4 text-white">
-                            <path d="M11.47 3.841a.75.75 0 0 1 1.06 0l8.69 8.69a.75.75 0 1 0 1.06-1.061l-8.689-8.69a2.25 2.25 0 0 0-3.182 0l-8.69 8.69a.75.75 0 1 0 1.061 1.06l8.69-8.689Z" />
-                            <path d="m12 5.432 8.159 8.159c.03.03.06.058.091.086v6.198c0 1.035-.84 1.875-1.875 1.875H15a.75.75 0 0 1-.75-.75v-4.5a.75.75 0 0 0-.75-.75h-3a.75.75 0 0 0-.75.75V21a.75.75 0 0 1-.75.75H5.625a1.875 1.875 0 0 1-1.875-1.875v-6.198a2.29 2.29 0 0 0 .091-.086L12 5.432Z" />
-                        </svg>
-                    </div>
-                    <span class="text-sm font-semibold text-white">HouseScout</span>
-                </div>
-
-                <nav class="flex items-center gap-6">
-                    <a href="#" class="text-sm text-zinc-400 transition hover:text-white">About</a>
-                    <a href="#" class="text-sm text-zinc-400 transition hover:text-white">Privacy</a>
-                    <a href="#" class="text-sm text-zinc-400 transition hover:text-white">Terms</a>
-                </nav>
-            </div>
-
-            <div class="mt-8 border-t border-zinc-800 pt-8 text-center">
-                <p class="text-sm text-zinc-500">Built with official UK government data sources.</p>
-                <p class="mt-2 text-xs text-zinc-600">&copy; {{ date('Y') }} {{ config('app.name', 'HouseScout') }}. All rights reserved.</p>
-            </div>
-        </div>
-    </footer>
 </x-layouts.marketing>

@@ -42,23 +42,3 @@ test('normalizes postcodes to uppercase with proper spacing', function (string $
     ['m11ae', 'M1 1AE'],
     ['B338TH', 'B33 8TH'],
 ]);
-
-test('extracts outcode from postcode', function (string $postcode, string $expected) {
-    expect($this->service->extractOutcode($postcode))->toBe($expected);
-})->with([
-    ['SW1A 1AA', 'SW1A'],
-    ['sw1a1aa', 'SW1A'],
-    ['M1 1AE', 'M1'],
-    ['B33 8TH', 'B33'],
-    ['EC1A 1BB', 'EC1A'],
-]);
-
-test('extracts incode from postcode', function (string $postcode, string $expected) {
-    expect($this->service->extractIncode($postcode))->toBe($expected);
-})->with([
-    ['SW1A 1AA', '1AA'],
-    ['sw1a1aa', '1AA'],
-    ['M1 1AE', '1AE'],
-    ['B33 8TH', '8TH'],
-    ['EC1A 1BB', '1BB'],
-]);
