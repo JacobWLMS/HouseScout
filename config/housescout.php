@@ -34,26 +34,4 @@ return [
     'search' => [
         'cleanup_after_days' => env('SEARCH_CLEANUP_DAYS', 90),
     ],
-    'checklist' => [
-        'items' => [
-            ['key' => 'epc_rating', 'label' => 'Energy Rating', 'category' => 'energy', 'is_deal_breaker' => false, 'auto' => true],
-            ['key' => 'epc_costs', 'label' => 'Running Costs', 'category' => 'energy', 'is_deal_breaker' => false, 'auto' => true],
-            ['key' => 'flood_risk', 'label' => 'Flood Risk Level', 'category' => 'flood', 'is_deal_breaker' => true, 'auto' => true],
-            ['key' => 'flood_warnings', 'label' => 'Active Flood Warnings', 'category' => 'flood', 'is_deal_breaker' => true, 'auto' => true],
-            ['key' => 'crime_level', 'label' => 'Crime Level', 'category' => 'crime', 'is_deal_breaker' => false, 'auto' => true],
-            ['key' => 'planning_issues', 'label' => 'Nearby Planning Activity', 'category' => 'planning', 'is_deal_breaker' => false, 'auto' => true],
-            ['key' => 'price_history', 'label' => 'Price Trend', 'category' => 'sales', 'is_deal_breaker' => false, 'auto' => true],
-            ['key' => 'structural', 'label' => 'Structural Condition', 'category' => 'survey', 'is_deal_breaker' => true, 'auto' => false],
-            ['key' => 'damp', 'label' => 'Damp / Moisture', 'category' => 'survey', 'is_deal_breaker' => true, 'auto' => false],
-            ['key' => 'roof_condition', 'label' => 'Roof Condition', 'category' => 'survey', 'is_deal_breaker' => false, 'auto' => false],
-            ['key' => 'parking', 'label' => 'Parking', 'category' => 'location', 'is_deal_breaker' => false, 'auto' => false],
-            ['key' => 'noise', 'label' => 'Noise Level', 'category' => 'location', 'is_deal_breaker' => false, 'auto' => false],
-            ['key' => 'neighbours', 'label' => 'Neighbours', 'category' => 'location', 'is_deal_breaker' => false, 'auto' => false],
-            ['key' => 'garden', 'label' => 'Garden / Outdoor Space', 'category' => 'location', 'is_deal_breaker' => false, 'auto' => false],
-            ['key' => 'commute', 'label' => 'Commute Time', 'category' => 'location', 'is_deal_breaker' => false, 'auto' => false],
-            ['key' => 'local_amenities', 'label' => 'Local Amenities', 'category' => 'location', 'is_deal_breaker' => false, 'auto' => false],
-            ['key' => 'schools_nearby', 'label' => 'Schools Nearby', 'category' => 'schools', 'is_deal_breaker' => false, 'auto' => false],
-            ['key' => 'broadband', 'label' => 'Broadband Speed', 'category' => 'broadband', 'is_deal_breaker' => false, 'auto' => false],
-        ],
-    ],
 ];

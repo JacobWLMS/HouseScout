@@ -12,6 +12,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @property string $item_key
  * @property string|null $assessment
  * @property bool $is_auto_assessed
+ * @property array|null $auto_data
  * @property string|null $notes
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
@@ -26,6 +27,7 @@ class PropertyAssessment extends Model
         'item_key',
         'assessment',
         'is_auto_assessed',
+        'auto_data',
         'notes',
     ];
 
@@ -33,6 +35,7 @@ class PropertyAssessment extends Model
     {
         return [
             'is_auto_assessed' => 'boolean',
+            'auto_data' => 'array',
         ];
     }
 

@@ -18,7 +18,7 @@ class SavedPropertyCardsWidget extends Widget
     protected string $view = 'filament.widgets.saved-property-cards';
 
     /**
-     * @return array<string, mixed>
+     * @return array<int, array<string, mixed>>
      */
     public function getSavedProperties(): array
     {
@@ -32,11 +32,13 @@ class SavedPropertyCardsWidget extends Widget
 
         return $savedProperties->map(function (SavedProperty $saved) use ($checklistService) {
             $progress = $checklistService->getProgress($saved);
+            $weightedScore = $checklistService->getWeightedScore($saved);
 
             return [
                 'id' => $saved->id,
                 'property' => $saved->property,
                 'progress' => $progress,
+                'weightedScore' => $weightedScore,
                 'url' => PropertyDetailPage::getUrl(['property' => $saved->property_id]),
             ];
         })->toArray();

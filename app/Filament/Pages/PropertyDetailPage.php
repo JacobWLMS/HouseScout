@@ -2,6 +2,7 @@
 
 namespace App\Filament\Pages;
 
+use App\Models\ChecklistTemplate;
 use App\Models\Property;
 use App\Models\PropertyAssessment;
 use App\Models\SavedProperty;
@@ -31,8 +32,11 @@ class PropertyDetailPage extends Page
 
     public int $demandCount = 0;
 
-    /** @var array<string, string|null> */
-    public array $assessments = [];
+    /** @var array{score: float, max: float, percentage: float} */
+    public array $weightedScore = ['score' => 0, 'max' => 0, 'percentage' => 0];
+
+    /** @var array<string, mixed> */
+    public array $checklistGroups = [];
 
     /** @var array<string, mixed> */
     public array $checklistProgress = [];
@@ -96,7 +100,8 @@ class PropertyDetailPage extends Page
                         $this->savedProperty->delete();
                         $this->savedProperty = null;
                         $this->notes = '';
-                        $this->assessments = [];
+                        $this->weightedScore = ['score' => 0, 'max' => 0, 'percentage' => 0];
+                        $this->checklistGroups = [];
                         $this->checklistProgress = [];
 
                         Notification::make()
@@ -146,14 +151,13 @@ class PropertyDetailPage extends Page
     public function loadChecklistData(): void
     {
         if ($this->savedProperty) {
-            $this->assessments = $this->savedProperty->assessments()
-                ->pluck('assessment', 'item_key')
-                ->toArray();
-
             $checklistService = app(ChecklistService::class);
+            $this->weightedScore = $checklistService->getWeightedScore($this->savedProperty);
+            $this->checklistGroups = $checklistService->getGroupedChecklist($this->savedProperty)->toArray();
             $this->checklistProgress = $checklistService->getProgress($this->savedProperty);
         } else {
-            $this->assessments = [];
+            $this->weightedScore = ['score' => 0, 'max' => 0, 'percentage' => 0];
+            $this->checklistGroups = [];
             $this->checklistProgress = [];
         }
     }
@@ -192,17 +196,34 @@ class PropertyDetailPage extends Page
         $this->loadChecklistData();
     }
 
+    public function addItemNote(string $itemKey, string $note): void
+    {
+        if (! $this->savedProperty) {
+            return;
+        }
+
+        PropertyAssessment::query()
+            ->where('saved_property_id', $this->savedProperty->id)
+            ->where('item_key', $itemKey)
+            ->update(['notes' => $note]);
+
+        $this->loadChecklistData();
+    }
+
     /** @return array<int, array<string, mixed>> */
     public function getDealBreakerItems(): array
     {
-        $items = config('housescout.checklist.items', []);
+        $dealBreakerKeys = ChecklistTemplate::active()
+            ->dealBreakers()
+            ->pluck('key', 'label');
 
-        return collect($items)
-            ->filter(function ($item) {
-                return ($item['is_deal_breaker'] ?? false)
-                    && isset($this->assessments[$item['key']])
-                    && $this->assessments[$item['key']] === 'dislike';
-            })
+        $assessments = $this->savedProperty
+            ? $this->savedProperty->assessments()->pluck('assessment', 'item_key')
+            : collect();
+
+        return $dealBreakerKeys
+            ->filter(fn ($key) => ($assessments[$key] ?? null) === 'dislike')
+            ->map(fn ($key, $label) => ['key' => $key, 'label' => $label])
             ->values()
             ->toArray();
     }

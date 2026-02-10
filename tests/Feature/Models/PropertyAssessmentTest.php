@@ -23,3 +23,20 @@ test('assessment casts is_auto_assessed to boolean', function () {
 
     expect($assessment->is_auto_assessed)->toBeTrue()->toBeBool();
 });
+
+test('assessment casts auto_data to array', function () {
+    $data = ['source' => 'epc', 'current_energy_rating' => 'B'];
+    $assessment = PropertyAssessment::factory()->create(['auto_data' => $data]);
+
+    $assessment->refresh();
+
+    expect($assessment->auto_data)->toBeArray()
+        ->and($assessment->auto_data['source'])->toBe('epc')
+        ->and($assessment->auto_data['current_energy_rating'])->toBe('B');
+});
+
+test('assessment auto_data defaults to null', function () {
+    $assessment = PropertyAssessment::factory()->create();
+
+    expect($assessment->auto_data)->toBeNull();
+});
