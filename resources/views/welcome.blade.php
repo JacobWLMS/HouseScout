@@ -42,96 +42,96 @@
     </section>
 
     {{-- Features Grid --}}
-    <section class="bg-white py-20 sm:py-28">
+    <section class="bg-white py-20 sm:py-28 dark:bg-zinc-950">
         <div class="mx-auto max-w-7xl px-6">
             <div class="mx-auto max-w-2xl text-center">
-                <h2 class="text-3xl font-bold tracking-tight text-zinc-900 sm:text-4xl">
+                <h2 class="text-3xl font-bold tracking-tight text-zinc-900 sm:text-4xl dark:text-white">
                     Everything you need to know about a property
                 </h2>
-                <p class="mt-4 text-lg text-zinc-600">
+                <p class="mt-4 text-lg text-zinc-600 dark:text-zinc-400">
                     We gather data from official UK government sources so you can make informed decisions.
                 </p>
             </div>
 
             <div class="mx-auto mt-16 grid max-w-5xl gap-8 sm:grid-cols-2 lg:grid-cols-3">
                 {{-- EPC Ratings --}}
-                <div class="rounded-xl border border-zinc-100 bg-white p-6 shadow-sm transition hover:shadow-md">
-                    <div class="flex size-12 items-center justify-center rounded-lg bg-green-50">
+                <div class="rounded-xl border border-zinc-100 bg-white p-6 shadow-sm transition hover:shadow-md dark:border-zinc-800 dark:bg-zinc-900">
+                    <div class="flex size-12 items-center justify-center rounded-lg bg-green-50 dark:bg-green-950/50">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 text-green-600">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" />
                         </svg>
                     </div>
-                    <h3 class="mt-4 text-lg font-semibold text-zinc-900">EPC Ratings</h3>
-                    <p class="mt-2 text-sm text-zinc-600">Understand energy efficiency, running costs, and environmental impact.</p>
+                    <h3 class="mt-4 text-lg font-semibold text-zinc-900 dark:text-white">EPC Ratings</h3>
+                    <p class="mt-2 text-sm text-zinc-600 dark:text-zinc-400">Understand energy efficiency, running costs, and environmental impact.</p>
                 </div>
 
                 {{-- Planning History --}}
-                <div class="rounded-xl border border-zinc-100 bg-white p-6 shadow-sm transition hover:shadow-md">
-                    <div class="flex size-12 items-center justify-center rounded-lg bg-blue-50">
+                <div class="rounded-xl border border-zinc-100 bg-white p-6 shadow-sm transition hover:shadow-md dark:border-zinc-800 dark:bg-zinc-900">
+                    <div class="flex size-12 items-center justify-center rounded-lg bg-blue-50 dark:bg-blue-950/50">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 text-blue-600">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" />
                         </svg>
                     </div>
-                    <h3 class="mt-4 text-lg font-semibold text-zinc-900">Planning History</h3>
-                    <p class="mt-2 text-sm text-zinc-600">View local planning applications and development activity.</p>
+                    <h3 class="mt-4 text-lg font-semibold text-zinc-900 dark:text-white">Planning History</h3>
+                    <p class="mt-2 text-sm text-zinc-600 dark:text-zinc-400">View local planning applications and development activity.</p>
                 </div>
 
                 {{-- Flood Risk --}}
-                <div class="rounded-xl border border-zinc-100 bg-white p-6 shadow-sm transition hover:shadow-md">
-                    <div class="flex size-12 items-center justify-center rounded-lg bg-cyan-50">
+                <div class="rounded-xl border border-zinc-100 bg-white p-6 shadow-sm transition hover:shadow-md dark:border-zinc-800 dark:bg-zinc-900">
+                    <div class="flex size-12 items-center justify-center rounded-lg bg-cyan-50 dark:bg-cyan-950/50">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 text-cyan-600">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 013 12c0-1.605.42-3.113 1.157-4.418" />
                         </svg>
                     </div>
-                    <h3 class="mt-4 text-lg font-semibold text-zinc-900">Flood Risk</h3>
-                    <p class="mt-2 text-sm text-zinc-600">Check river, sea, and surface water flood risk levels.</p>
+                    <h3 class="mt-4 text-lg font-semibold text-zinc-900 dark:text-white">Flood Risk</h3>
+                    <p class="mt-2 text-sm text-zinc-600 dark:text-zinc-400">Check river, sea, and surface water flood risk levels.</p>
                 </div>
 
                 {{-- Crime Statistics --}}
-                <div class="rounded-xl border border-zinc-100 bg-white p-6 shadow-sm transition hover:shadow-md">
-                    <div class="flex size-12 items-center justify-center rounded-lg bg-red-50">
+                <div class="rounded-xl border border-zinc-100 bg-white p-6 shadow-sm transition hover:shadow-md dark:border-zinc-800 dark:bg-zinc-900">
+                    <div class="flex size-12 items-center justify-center rounded-lg bg-red-50 dark:bg-red-950/50">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 text-red-600">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m0-10.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285zm0 13.036h.008v.008H12v-.008z" />
                         </svg>
                     </div>
-                    <h3 class="mt-4 text-lg font-semibold text-zinc-900">Crime Statistics</h3>
-                    <p class="mt-2 text-sm text-zinc-600">Browse street-level crime data by category and month.</p>
+                    <h3 class="mt-4 text-lg font-semibold text-zinc-900 dark:text-white">Crime Statistics</h3>
+                    <p class="mt-2 text-sm text-zinc-600 dark:text-zinc-400">Browse street-level crime data by category and month.</p>
                 </div>
 
                 {{-- Land Registry --}}
-                <div class="rounded-xl border border-zinc-100 bg-white p-6 shadow-sm transition hover:shadow-md">
-                    <div class="flex size-12 items-center justify-center rounded-lg bg-amber-50">
+                <div class="rounded-xl border border-zinc-100 bg-white p-6 shadow-sm transition hover:shadow-md dark:border-zinc-800 dark:bg-zinc-900">
+                    <div class="flex size-12 items-center justify-center rounded-lg bg-amber-50 dark:bg-amber-950/50">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 text-amber-600">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 21h19.5m-18-18v18m10.5-18v18m6-13.5V21M6.75 6.75h.75m-.75 3h.75m-.75 3h.75m3-6h.75m-.75 3h.75m-.75 3h.75M6.75 21v-3.375c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21M3 3h12m-.75 4.5H21m-3.75 3H21m-3.75 3H21" />
                         </svg>
                     </div>
-                    <h3 class="mt-4 text-lg font-semibold text-zinc-900">Land Registry</h3>
-                    <p class="mt-2 text-sm text-zinc-600">Access ownership details and historical sale prices.</p>
+                    <h3 class="mt-4 text-lg font-semibold text-zinc-900 dark:text-white">Land Registry</h3>
+                    <p class="mt-2 text-sm text-zinc-600 dark:text-zinc-400">Access ownership details and historical sale prices.</p>
                 </div>
 
                 {{-- Demand Tracking --}}
-                <div class="rounded-xl border border-zinc-100 bg-white p-6 shadow-sm transition hover:shadow-md">
-                    <div class="flex size-12 items-center justify-center rounded-lg bg-purple-50">
+                <div class="rounded-xl border border-zinc-100 bg-white p-6 shadow-sm transition hover:shadow-md dark:border-zinc-800 dark:bg-zinc-900">
+                    <div class="flex size-12 items-center justify-center rounded-lg bg-purple-50 dark:bg-purple-950/50">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 text-purple-600">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z" />
                             <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
                         </svg>
                     </div>
-                    <h3 class="mt-4 text-lg font-semibold text-zinc-900">Demand Tracking</h3>
-                    <p class="mt-2 text-sm text-zinc-600">See how many people are researching the same property.</p>
+                    <h3 class="mt-4 text-lg font-semibold text-zinc-900 dark:text-white">Demand Tracking</h3>
+                    <p class="mt-2 text-sm text-zinc-600 dark:text-zinc-400">See how many people are researching the same property.</p>
                 </div>
             </div>
         </div>
     </section>
 
     {{-- How It Works --}}
-    <section class="bg-zinc-50 py-20 sm:py-28">
+    <section class="bg-zinc-50 py-20 sm:py-28 dark:bg-zinc-900">
         <div class="mx-auto max-w-7xl px-6">
             <div class="mx-auto max-w-2xl text-center">
-                <h2 class="text-3xl font-bold tracking-tight text-zinc-900 sm:text-4xl">
+                <h2 class="text-3xl font-bold tracking-tight text-zinc-900 sm:text-4xl dark:text-white">
                     How it works
                 </h2>
-                <p class="mt-4 text-lg text-zinc-600">
+                <p class="mt-4 text-lg text-zinc-600 dark:text-zinc-400">
                     Get comprehensive property intelligence in three simple steps.
                 </p>
             </div>
@@ -142,8 +142,8 @@
                     <div class="mx-auto flex size-16 items-center justify-center rounded-full bg-blue-600 text-2xl font-bold text-white">
                         1
                     </div>
-                    <h3 class="mt-6 text-xl font-semibold text-zinc-900">Search</h3>
-                    <p class="mt-3 text-sm text-zinc-600">Enter any UK address or postcode to get started.</p>
+                    <h3 class="mt-6 text-xl font-semibold text-zinc-900 dark:text-white">Search</h3>
+                    <p class="mt-3 text-sm text-zinc-600 dark:text-zinc-400">Enter any UK address or postcode to get started.</p>
                 </div>
 
                 {{-- Step 2 --}}
@@ -151,8 +151,8 @@
                     <div class="mx-auto flex size-16 items-center justify-center rounded-full bg-blue-600 text-2xl font-bold text-white">
                         2
                     </div>
-                    <h3 class="mt-6 text-xl font-semibold text-zinc-900">Analyse</h3>
-                    <p class="mt-3 text-sm text-zinc-600">We gather data from 5+ official government sources.</p>
+                    <h3 class="mt-6 text-xl font-semibold text-zinc-900 dark:text-white">Analyse</h3>
+                    <p class="mt-3 text-sm text-zinc-600 dark:text-zinc-400">We gather data from 5+ official government sources.</p>
                 </div>
 
                 {{-- Step 3 --}}
@@ -160,32 +160,32 @@
                     <div class="mx-auto flex size-16 items-center justify-center rounded-full bg-blue-600 text-2xl font-bold text-white">
                         3
                     </div>
-                    <h3 class="mt-6 text-xl font-semibold text-zinc-900">Decide</h3>
-                    <p class="mt-3 text-sm text-zinc-600">Make informed decisions backed by comprehensive data.</p>
+                    <h3 class="mt-6 text-xl font-semibold text-zinc-900 dark:text-white">Decide</h3>
+                    <p class="mt-3 text-sm text-zinc-600 dark:text-zinc-400">Make informed decisions backed by comprehensive data.</p>
                 </div>
             </div>
         </div>
     </section>
 
     {{-- Stats / Social Proof --}}
-    <section class="border-y border-zinc-100 bg-white py-16">
+    <section class="border-y border-zinc-100 bg-white py-16 dark:border-zinc-800 dark:bg-zinc-950">
         <div class="mx-auto max-w-7xl px-6">
             <div class="grid grid-cols-2 gap-8 sm:grid-cols-4">
                 <div class="text-center">
                     <div class="text-3xl font-bold text-blue-600">5+</div>
-                    <p class="mt-2 text-sm font-medium text-zinc-600">Official Data Sources</p>
+                    <p class="mt-2 text-sm font-medium text-zinc-600 dark:text-zinc-400">Official Data Sources</p>
                 </div>
                 <div class="text-center">
                     <div class="text-3xl font-bold text-green-600">Free</div>
-                    <p class="mt-2 text-sm font-medium text-zinc-600">Free to Use</p>
+                    <p class="mt-2 text-sm font-medium text-zinc-600 dark:text-zinc-400">Free to Use</p>
                 </div>
                 <div class="text-center">
                     <div class="text-3xl font-bold text-indigo-600">Daily</div>
-                    <p class="mt-2 text-sm font-medium text-zinc-600">Updated Daily</p>
+                    <p class="mt-2 text-sm font-medium text-zinc-600 dark:text-zinc-400">Updated Daily</p>
                 </div>
                 <div class="text-center">
                     <div class="text-3xl font-bold text-amber-600">100%</div>
-                    <p class="mt-2 text-sm font-medium text-zinc-600">Government Data</p>
+                    <p class="mt-2 text-sm font-medium text-zinc-600 dark:text-zinc-400">Government Data</p>
                 </div>
             </div>
         </div>
