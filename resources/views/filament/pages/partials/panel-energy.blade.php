@@ -11,12 +11,12 @@
             <div class="text-center">
                 <p class="text-sm font-medium text-gray-500 dark:text-gray-400">Current Rating</p>
                 <p class="text-3xl font-bold text-primary-600">{{ $this->property->epcData->current_energy_rating ?? 'N/A' }}</p>
-                <p class="text-xs text-gray-500">Efficiency: {{ $this->property->epcData->current_energy_efficiency ?? 'N/A' }}</p>
+                <p class="text-xs text-gray-500 dark:text-gray-400">Efficiency: {{ $this->property->epcData->current_energy_efficiency ?? 'N/A' }}</p>
             </div>
             <div class="text-center">
                 <p class="text-sm font-medium text-gray-500 dark:text-gray-400">Potential</p>
                 <p class="text-3xl font-bold text-success-600">{{ $this->property->epcData->potential_energy_rating ?? 'N/A' }}</p>
-                <p class="text-xs text-gray-500">Efficiency: {{ $this->property->epcData->potential_energy_efficiency ?? 'N/A' }}</p>
+                <p class="text-xs text-gray-500 dark:text-gray-400">Efficiency: {{ $this->property->epcData->potential_energy_efficiency ?? 'N/A' }}</p>
             </div>
         </div>
 
@@ -34,15 +34,15 @@
             </div>
             <div class="mt-2 grid grid-cols-3 gap-2 text-center text-xs">
                 <div>
-                    <p class="text-gray-500">Lighting</p>
+                    <p class="text-gray-500 dark:text-gray-400">Lighting</p>
                     <p class="font-medium">&pound;{{ $this->property->epcData->lighting_cost_current ?? 'N/A' }}/yr</p>
                 </div>
                 <div>
-                    <p class="text-gray-500">Heating</p>
+                    <p class="text-gray-500 dark:text-gray-400">Heating</p>
                     <p class="font-medium">&pound;{{ $this->property->epcData->heating_cost_current ?? 'N/A' }}/yr</p>
                 </div>
                 <div>
-                    <p class="text-gray-500">Hot Water</p>
+                    <p class="text-gray-500 dark:text-gray-400">Hot Water</p>
                     <p class="font-medium">&pound;{{ $this->property->epcData->hot_water_cost_current ?? 'N/A' }}/yr</p>
                 </div>
             </div>

@@ -92,11 +92,7 @@ class PropertyDetailPage extends Page
                 ->color($this->savedProperty ? 'danger' : 'primary')
                 ->action(function (): void {
                     if ($this->savedProperty) {
-                        try {
-                            $this->savedProperty->assessments()->delete();
-                        } catch (\Throwable) {
-                            // PropertyAssessment table may not exist yet
-                        }
+                        $this->savedProperty->assessments()->delete();
                         $this->savedProperty->delete();
                         $this->savedProperty = null;
                         $this->notes = '';
@@ -114,12 +110,8 @@ class PropertyDetailPage extends Page
                             'notes' => $this->notes ?: null,
                         ]);
 
-                        try {
-                            $checklistService = app(ChecklistService::class);
-                            $checklistService->initializeChecklist($this->savedProperty);
-                        } catch (\Throwable) {
-                            // ChecklistService may not exist yet
-                        }
+                        $checklistService = app(ChecklistService::class);
+                        $checklistService->initializeChecklist($this->savedProperty);
 
                         $this->loadChecklistData();
 
@@ -154,20 +146,12 @@ class PropertyDetailPage extends Page
     public function loadChecklistData(): void
     {
         if ($this->savedProperty) {
-            try {
-                $this->assessments = $this->savedProperty->assessments()
-                    ->pluck('assessment', 'item_key')
-                    ->toArray();
-            } catch (\Throwable) {
-                $this->assessments = [];
-            }
+            $this->assessments = $this->savedProperty->assessments()
+                ->pluck('assessment', 'item_key')
+                ->toArray();
 
-            try {
-                $checklistService = app(ChecklistService::class);
-                $this->checklistProgress = $checklistService->getProgress($this->savedProperty);
-            } catch (\Throwable) {
-                $this->checklistProgress = [];
-            }
+            $checklistService = app(ChecklistService::class);
+            $this->checklistProgress = $checklistService->getProgress($this->savedProperty);
         } else {
             $this->assessments = [];
             $this->checklistProgress = [];

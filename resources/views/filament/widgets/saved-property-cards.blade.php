@@ -23,22 +23,23 @@
                     <a href="{{ $saved['url'] }}" class="block rounded-xl border border-gray-200 p-4 transition-shadow hover:shadow-md dark:border-gray-700">
                         {{-- Map Thumbnail --}}
                         @if($saved['property']->latitude && $saved['property']->longitude)
-                            <iframe
-                                class="mb-3 h-32 w-full rounded-lg border-0"
+                            <img
+                                class="mb-3 h-32 w-full rounded-lg border-0 object-cover"
                                 loading="lazy"
-                                src="https://www.google.com/maps/embed/v1/place?key={{ config('housescout.api.google_maps.key') }}&q={{ urlencode($saved['property']->address_line_1 . ', ' . $saved['property']->postcode) }}&maptype=satellite&zoom=16"
-                            ></iframe>
+                                alt="Map of {{ $saved['property']->address_line_1 }}"
+                                src="https://staticmap.openstreetmap.de/staticmap.php?center={{ $saved['property']->latitude }},{{ $saved['property']->longitude }}&zoom=16&size=400x200&maptype=mapnik&markers={{ $saved['property']->latitude }},{{ $saved['property']->longitude }},red-pushpin"
+                            >
                         @endif
 
                         {{-- Address --}}
                         <p class="font-semibold text-gray-900 dark:text-white">{{ $saved['property']->address_line_1 }}</p>
-                        <p class="text-sm text-gray-500">{{ $saved['property']->postcode }}</p>
+                        <p class="text-sm text-gray-500 dark:text-gray-400">{{ $saved['property']->postcode }}</p>
 
                         {{-- Progress Bar --}}
                         <div class="mt-3">
                             <div class="mb-1 flex items-center justify-between text-xs">
-                                <span class="text-gray-500">{{ $saved['progress']['assessed'] }}/{{ $saved['progress']['total'] }}</span>
-                                <span class="font-medium">{{ $saved['progress']['percentage'] }}%</span>
+                                <span class="text-gray-500 dark:text-gray-400">{{ $saved['progress']['assessed'] }}/{{ $saved['progress']['total'] }}</span>
+                                <span class="font-medium text-gray-700 dark:text-gray-300">{{ $saved['progress']['percentage'] }}%</span>
                             </div>
                             <div class="h-1.5 w-full rounded-full bg-gray-200 dark:bg-gray-700">
                                 <div class="h-1.5 rounded-full bg-primary-600" style="width: {{ $saved['progress']['percentage'] }}%"></div>

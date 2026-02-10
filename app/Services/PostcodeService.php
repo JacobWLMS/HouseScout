@@ -22,20 +22,6 @@ class PostcodeService
         return substr($clean, 0, -3).' '.substr($clean, -3);
     }
 
-    public function extractOutcode(string $postcode): string
-    {
-        $normalized = $this->normalize($postcode);
-
-        return explode(' ', $normalized)[0];
-    }
-
-    public function extractIncode(string $postcode): string
-    {
-        $normalized = $this->normalize($postcode);
-
-        return explode(' ', $normalized)[1];
-    }
-
     public function autocomplete(string $partial): array
     {
         $partial = trim($partial);

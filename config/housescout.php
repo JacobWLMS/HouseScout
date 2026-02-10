@@ -27,9 +27,8 @@ return [
         'postcodes' => [
             'base_url' => env('POSTCODES_API_BASE_URL', 'https://api.postcodes.io'),
         ],
-        'google_maps' => [
-            'key' => env('GOOGLE_MAPS_API_KEY'),
-            'map_id' => env('GOOGLE_MAPS_MAP_ID', ''),
+        'google_maps_embed' => [
+            'key' => env('GOOGLE_MAPS_EMBED_API_KEY'),
         ],
     ],
     'search' => [

@@ -18,10 +18,10 @@
             <div class="flex items-center gap-4">
                 <div>
                     <p class="text-2xl font-bold text-gray-900 dark:text-white">{{ $avgPerMonth }}</p>
-                    <p class="text-xs text-gray-500">incidents/month</p>
+                    <p class="text-xs text-gray-500 dark:text-gray-400">incidents/month</p>
                 </div>
                 <div>
-                    <p class="text-sm text-gray-500">{{ $totalCrimes }} total over {{ $months }} months</p>
+                    <p class="text-sm text-gray-500 dark:text-gray-400">{{ $totalCrimes }} total over {{ $months }} months</p>
                 </div>
             </div>
 

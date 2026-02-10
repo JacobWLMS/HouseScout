@@ -24,6 +24,32 @@ class MapEmbed extends Component
         $this->postcode = $property->postcode;
     }
 
+    public function satelliteMapUrl(): string
+    {
+        $apiKey = config('housescout.api.google_maps_embed.key');
+        $params = [
+            'key' => $apiKey,
+            'q' => $this->latitude.','.$this->longitude,
+            'maptype' => 'satellite',
+            'zoom' => '18',
+        ];
+
+        return 'https://www.google.com/maps/embed/v1/place?'.http_build_query($params);
+    }
+
+    public function streetViewUrl(): string
+    {
+        $apiKey = config('housescout.api.google_maps_embed.key');
+        $params = [
+            'key' => $apiKey,
+            'location' => $this->latitude.','.$this->longitude,
+            'heading' => '0',
+            'pitch' => '0',
+        ];
+
+        return 'https://www.google.com/maps/embed/v1/streetview?'.http_build_query($params);
+    }
+
     public function render(): View
     {
         return view('livewire.map-embed');

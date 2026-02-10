@@ -22,7 +22,7 @@
 
             @if($this->property->floodRiskData->surface_water_risk)
                 <div>
-                    <p class="text-xs text-gray-500">Surface Water: {{ $this->property->floodRiskData->surface_water_risk }}</p>
+                    <p class="text-xs text-gray-500 dark:text-gray-400">Surface Water: {{ $this->property->floodRiskData->surface_water_risk }}</p>
                 </div>
             @endif
 

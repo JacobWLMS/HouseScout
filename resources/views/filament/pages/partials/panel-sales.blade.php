@@ -11,7 +11,7 @@
             @if($this->property->landRegistryData->last_sold_price)
                 <div>
                     <p class="text-2xl font-bold text-gray-900 dark:text-white">&pound;{{ number_format($this->property->landRegistryData->last_sold_price) }}</p>
-                    <p class="text-xs text-gray-500">
+                    <p class="text-xs text-gray-500 dark:text-gray-400">
                         Last sold {{ $this->property->landRegistryData->last_sold_date?->format('M Y') ?? 'N/A' }}
                         @if($this->property->landRegistryData->tenure)
                             &middot; {{ $this->property->landRegistryData->tenure }}
@@ -24,7 +24,7 @@
                 <div class="space-y-1">
                     @foreach(collect($this->property->landRegistryData->price_history)->take(5) as $entry)
                         <div class="flex items-center justify-between text-xs">
-                            <span class="text-gray-500">{{ $entry['date'] ?? 'N/A' }}</span>
+                            <span class="text-gray-500 dark:text-gray-400">{{ $entry['date'] ?? 'N/A' }}</span>
                             <span class="font-medium text-gray-900 dark:text-white">&pound;{{ number_format($entry['price'] ?? 0) }}</span>
                         </div>
                     @endforeach

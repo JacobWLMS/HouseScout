@@ -59,19 +59,7 @@ class PropertySearchWidget extends Widget
 
     public function updatedQuery(): void
     {
-        $this->selectedPostcode = null;
-        $this->addresses = [];
-        $this->latitude = null;
-        $this->longitude = null;
-        $this->adminDistrict = null;
-        $this->adminCounty = null;
-        $this->lsoa = null;
-        $this->msoa = null;
-        $this->ward = null;
-        $this->constituency = null;
-        $this->easting = null;
-        $this->northing = null;
-        $this->localAuthority = null;
+        $this->resetState();
 
         if (strlen(trim($this->query)) < 2) {
             $this->postcodeSuggestions = [];
@@ -192,6 +180,11 @@ class PropertySearchWidget extends Widget
     public function resetSearch(): void
     {
         $this->query = '';
+        $this->resetState();
+    }
+
+    private function resetState(): void
+    {
         $this->postcodeSuggestions = [];
         $this->selectedPostcode = null;
         $this->addresses = [];

@@ -37,8 +37,8 @@ beforeEach(function () {
     ]);
 });
 
-test('fetchAllData dispatches FetchPropertyDataJob', function () {
-    $this->service->fetchAllData($this->property);
+test('FetchPropertyDataJob can be dispatched for a property', function () {
+    FetchPropertyDataJob::dispatch($this->property);
 
     Queue::assertPushed(FetchPropertyDataJob::class, function ($job) {
         return $job->property->id === $this->property->id;

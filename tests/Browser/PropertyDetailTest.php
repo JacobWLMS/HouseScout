@@ -72,3 +72,23 @@ test('property detail page shows unsave button for saved property', function () 
             ->assertSee('Unsave Property');
     });
 });
+
+test('property detail page displays google maps embed iframe', function () {
+    $user = User::factory()->create();
+    $property = Property::factory()->create([
+        'address_line_1' => '3 Ringinglow Gardens',
+        'postcode' => 'S11 7DB',
+        'latitude' => '53.3523050',
+        'longitude' => '-1.5352230',
+    ]);
+
+    $this->browse(function (Browser $browser) use ($user, $property) {
+        $browser->loginAs($user)
+            ->visit("/app/properties/{$property->id}")
+            ->assertSee('Location')
+            ->assertSee('Satellite')
+            ->assertSee('Street View')
+            ->assertPresent('iframe[src*="google.com/maps/embed"]')
+            ->screenshot('map-embed-verification');
+    });
+});

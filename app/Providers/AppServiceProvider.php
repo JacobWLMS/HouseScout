@@ -30,8 +30,6 @@ class AppServiceProvider extends ServiceProvider
     {
         $this->configureDefaults();
         $this->configurePulse();
-
-        $this->app->singleton(\App\Services\Map\MapLayerRegistry::class);
     }
 
     protected function configurePulse(): void

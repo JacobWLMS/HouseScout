@@ -12,7 +12,7 @@
             {{-- Progress Bar --}}
             <div>
                 <div class="mb-1 flex items-center justify-between text-sm">
-                    <span class="text-gray-500">{{ $progress['assessed'] ?? 0 }} / {{ $progress['total'] ?? 0 }} assessed</span>
+                    <span class="text-gray-500 dark:text-gray-400">{{ $progress['assessed'] ?? 0 }} / {{ $progress['total'] ?? 0 }} assessed</span>
                     <span class="font-semibold text-gray-900 dark:text-white">{{ $percentage }}%</span>
                 </div>
                 <div class="h-2.5 w-full rounded-full bg-gray-200 dark:bg-gray-700">
@@ -51,7 +51,7 @@
             {{-- Unassessed Count --}}
             @php $unassessed = ($progress['total'] ?? 0) - ($progress['assessed'] ?? 0); @endphp
             @if($unassessed > 0)
-                <p class="text-xs text-gray-500">{{ $unassessed }} items still to assess</p>
+                <p class="text-xs text-gray-500 dark:text-gray-400">{{ $unassessed }} items still to assess</p>
             @endif
         </div>
     </x-filament::section>

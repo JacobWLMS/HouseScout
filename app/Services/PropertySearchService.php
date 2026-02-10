@@ -4,7 +4,6 @@ namespace App\Services;
 
 use App\DataObjects\AddressResult;
 use App\DataObjects\PostcodeLookupResult;
-use App\Exceptions\InvalidPostcodeException;
 use App\Jobs\FetchPropertyDataJob;
 use App\Models\Property;
 use App\Models\PropertySearch;
@@ -108,43 +107,6 @@ class PropertySearchService
         ]);
 
         // 5. Dispatch data fetch job (non-blocking — don't fail property creation if queue is down)
-        try {
-            FetchPropertyDataJob::dispatch($property);
-        } catch (\Exception $e) {
-            Log::warning('Failed to dispatch FetchPropertyDataJob', [
-                'property_id' => $property->id,
-                'error' => $e->getMessage(),
-            ]);
-        }
-
-        return $property;
-    }
-
-    /**
-     * Text-based search for existing properties in the database.
-     * Used as a fallback when the user searches by text rather than postcode autocomplete.
-     */
-    public function search(User $user, string $query): Property
-    {
-        $query = trim($query);
-
-        $property = Property::query()
-            ->where('address_line_1', 'like', "%{$query}%")
-            ->orWhere('postcode', 'like', "%{$query}%")
-            ->orWhere('uprn', $query)
-            ->first();
-
-        if (! $property) {
-            throw new InvalidPostcodeException("No property found for query: {$query}");
-        }
-
-        PropertySearch::create([
-            'user_id' => $user->id,
-            'property_id' => $property->id,
-            'searched_at' => now(),
-            'search_query' => $query,
-        ]);
-
         try {
             FetchPropertyDataJob::dispatch($property);
         } catch (\Exception $e) {

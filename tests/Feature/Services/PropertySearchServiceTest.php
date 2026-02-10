@@ -2,7 +2,6 @@
 
 use App\DataObjects\AddressResult;
 use App\DataObjects\PostcodeLookupResult;
-use App\Exceptions\InvalidPostcodeException;
 use App\Jobs\FetchPropertyDataJob;
 use App\Models\Property;
 use App\Models\PropertySearch;
@@ -178,42 +177,6 @@ test('selectProperty dispatches FetchPropertyDataJob', function () {
     );
 
     $this->service->selectProperty($user, $address, $postcodeData);
-
-    Queue::assertPushed(FetchPropertyDataJob::class);
-});
-
-// --- search (text fallback) tests ---
-
-test('search finds existing property by address text', function () {
-    $user = User::factory()->create();
-    $existing = Property::factory()->create(['address_line_1' => '10 Downing Street']);
-
-    $property = $this->service->search($user, 'Downing');
-
-    expect($property->id)->toBe($existing->id);
-});
-
-test('search throws InvalidPostcodeException when no property found', function () {
-    $user = User::factory()->create();
-
-    expect(fn () => $this->service->search($user, 'non-existent address'))
-        ->toThrow(InvalidPostcodeException::class);
-});
-
-test('search logs the search in property_searches', function () {
-    $user = User::factory()->create();
-    Property::factory()->create(['postcode' => 'SW1A 1AA']);
-
-    $this->service->search($user, 'SW1A 1AA');
-
-    expect(PropertySearch::query()->where('user_id', $user->id)->count())->toBe(1);
-});
-
-test('search dispatches FetchPropertyDataJob', function () {
-    $user = User::factory()->create();
-    Property::factory()->create(['postcode' => 'EC1A 1BB']);
-
-    $this->service->search($user, 'EC1A 1BB');
 
     Queue::assertPushed(FetchPropertyDataJob::class);
 });

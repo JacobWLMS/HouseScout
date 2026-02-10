@@ -4,7 +4,6 @@ namespace App\Services;
 
 use App\Models\PropertyAssessment;
 use App\Models\SavedProperty;
-use Illuminate\Support\Collection;
 
 class ChecklistService
 {
@@ -95,14 +94,6 @@ class ChecklistService
             'dealBreakers' => $dealBreakers,
             'percentage' => $total > 0 ? (int) round(($assessed / $total) * 100) : 0,
         ];
-    }
-
-    /**
-     * @return Collection<string, string|null>
-     */
-    public function getAssessments(SavedProperty $saved): Collection
-    {
-        return $saved->assessments()->pluck('assessment', 'item_key');
     }
 
     /**

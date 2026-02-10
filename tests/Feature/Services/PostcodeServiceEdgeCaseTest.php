@@ -132,32 +132,6 @@ test('normalize handles all UK postcode formats', function (string $input, strin
     'extra spaces' => ['  EC1A  1BB  ', 'EC1A 1BB'],
 ]);
 
-// --- extractOutcode with various formats ---
-
-test('extractOutcode handles all UK postcode formats', function (string $input, string $expected) {
-    expect($this->service->extractOutcode($input))->toBe($expected);
-})->with([
-    'A9 format' => ['M1 1AE', 'M1'],
-    'A99 format' => ['M60 1NW', 'M60'],
-    'A9A format' => ['W1A 0AX', 'W1A'],
-    'AA9 format' => ['LS1 1UR', 'LS1'],
-    'AA99 format' => ['DN55 1PT', 'DN55'],
-    'AA9A format' => ['EC1A 1BB', 'EC1A'],
-]);
-
-// --- extractIncode with various formats ---
-
-test('extractIncode handles all UK postcode formats', function (string $input, string $expected) {
-    expect($this->service->extractIncode($input))->toBe($expected);
-})->with([
-    'A9 format' => ['M1 1AE', '1AE'],
-    'A99 format' => ['M60 1NW', '1NW'],
-    'A9A format' => ['W1A 0AX', '0AX'],
-    'AA9 format' => ['LS1 1UR', '1UR'],
-    'AA99 format' => ['DN55 1PT', '1PT'],
-    'AA9A format' => ['EC1A 1BB', '1BB'],
-]);
-
 // --- validate with various formats ---
 
 test('validate accepts all UK postcode format types', function (string $postcode) {
